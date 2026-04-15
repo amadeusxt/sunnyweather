@@ -41,4 +41,10 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+    implementation("com.github.bumptech.glide:glide:5.0.5")
+    annotationProcessor("com.github.bumptech.glide:compiler:5.0.5")
+    implementation("com.google.code.gson:gson:2.11.0")
+    implementation("com.squareup.okhttp3:okhttp:4.12.0")
+
+
 }

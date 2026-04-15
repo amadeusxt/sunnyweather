@@ -1,0 +1,262 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="240dp"
+    android:height="1200dp"
+    android:viewportWidth="240"
+    android:viewportHeight="1200">
+
+    <!-- 外框 -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#FFD700"
+        android:strokeWidth="2"
+        android:pathData="M20,1 L220,1 L220,1190 L20,1190 Z"/>
+
+    <!-- 第一组：上半部分鱼形 -->
+    <!-- 左鱼 -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#FFD700"
+        android:strokeWidth="2"
+        android:pathData="M60,210 L20,150 L60,30 L100,150 Z"/>
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#FFD700"
+        android:strokeWidth="2"
+        android:pathData="M60,30 L40,10 L80,10 Z"/>
+    <!-- 左鱼菱形内 波浪线（略加长） -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#FFD700"
+        android:strokeWidth="1.5"
+        android:pathData="M38,90 Q50,85 62,90"/>
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#FFD700"
+        android:strokeWidth="1.5"
+        android:pathData="M38,120 Q50,115 62,120"/>
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#FFD700"
+        android:strokeWidth="1.5"
+        android:pathData="M38,150 Q50,145 62,150"/>
+
+    <!-- 右鱼 -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#FFD700"
+        android:strokeWidth="2"
+        android:pathData="M160,210 L200,150 L160,30 L120,150 Z"/>
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#FFD700"
+        android:strokeWidth="2"
+        android:pathData="M160,30 L140,10 L180,10 Z"/>
+    <!-- 右鱼菱形内 波浪线（略加长） -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#FFD700"
+        android:strokeWidth="1.5"
+        android:pathData="M158,90 Q170,85 182,90"/>
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#FFD700"
+        android:strokeWidth="1.5"
+        android:pathData="M158,120 Q170,115 182,120"/>
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#FFD700"
+        android:strokeWidth="1.5"
+        android:pathData="M158,150 Q170,145 182,150"/>
+
+    <!-- 鱼杆（左） -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#FFD700"
+        android:strokeWidth="2"
+        android:pathData="M60,150 L60,450"/>
+    <path android:fillColor="#00000000" android:strokeColor="#FFD700" android:strokeWidth="1.5" android:pathData="M55,240 L65,240"/>
+
+    <!-- 鱼杆（右） -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#FFD700"
+        android:strokeWidth="2"
+        android:pathData="M160,150 L160,450"/>
+    <path android:fillColor="#00000000" android:strokeColor="#FFD700" android:strokeWidth="1.5" android:pathData="M155,240 L165,240"/>
+
+
+
+    <!-- 箭羽（左） -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#FFD700"
+        android:strokeWidth="2"
+        android:pathData="M60,370 L40,440 L60,460 L80,440 Z"/>
+    <path android:fillColor="#00000000" android:strokeColor="#FFD700" android:strokeWidth="1.5" android:pathData="M60,380 L50,390"/>
+    <path android:fillColor="#00000000" android:strokeColor="#FFD700" android:strokeWidth="1.5" android:pathData="M60,400 L50,410"/>
+    <path android:fillColor="#00000000" android:strokeColor="#FFD700" android:strokeWidth="1.5" android:pathData="M60,420 L50,430"/>
+    <path android:fillColor="#00000000" android:strokeColor="#FFD700" android:strokeWidth="1.5" android:pathData="M60,380 L70,390"/>
+    <path android:fillColor="#00000000" android:strokeColor="#FFD700" android:strokeWidth="1.5" android:pathData="M60,400 L70,410"/>
+    <path android:fillColor="#00000000" android:strokeColor="#FFD700" android:strokeWidth="1.5" android:pathData="M60,420 L70,430"/>
+
+    <!-- 箭羽（右） -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#FFD700"
+        android:strokeWidth="2"
+        android:pathData="M160,370 L140,440 L160,460 L180,440 Z"/>
+    <path android:fillColor="#00000000" android:strokeColor="#FFD700" android:strokeWidth="1.5" android:pathData="M160,380 L150,390"/>
+    <path android:fillColor="#00000000" android:strokeColor="#FFD700" android:strokeWidth="1.5" android:pathData="M160,400 L150,410"/>
+    <path android:fillColor="#00000000" android:strokeColor="#FFD700" android:strokeWidth="1.5" android:pathData="M160,420 L150,430"/>
+    <path android:fillColor="#00000000" android:strokeColor="#FFD700" android:strokeWidth="1.5" android:pathData="M160,380 L170,390"/>
+    <path android:fillColor="#00000000" android:strokeColor="#FFD700" android:strokeWidth="1.5" android:pathData="M160,400 L170,410"/>
+    <path android:fillColor="#00000000" android:strokeColor="#FFD700" android:strokeWidth="1.5" android:pathData="M160,420 L170,430"/>
+
+    <!-- 第二组：下半部分鱼形 -->
+    <!-- 左鱼 -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#FFD700"
+        android:strokeWidth="2"
+        android:pathData="M60,690 L20,630 L60,510 L100,630 Z"/>
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#FFD700"
+        android:strokeWidth="2"
+        android:pathData="M60,510 L40,490 L80,490 Z"/>
+    <!-- 左鱼菱形内 波浪线（略加长） -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#FFD700"
+        android:strokeWidth="1.5"
+        android:pathData="M38,570 Q50,565 62,570"/>
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#FFD700"
+        android:strokeWidth="1.5"
+        android:pathData="M38,600 Q50,595 62,600"/>
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#FFD700"
+        android:strokeWidth="1.5"
+        android:pathData="M38,630 Q50,625 62,630"/>
+
+    <!-- 右鱼 -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#FFD700"
+        android:strokeWidth="2"
+        android:pathData="M160,690 L200,630 L160,510 L120,630 Z"/>
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#FFD700"
+        android:strokeWidth="2"
+        android:pathData="M160,510 L140,490 L180,490 Z"/>
+    <!-- 右鱼菱形内 波浪线（略加长） -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#FFD700"
+        android:strokeWidth="1.5"
+        android:pathData="M158,570 Q170,565 182,570"/>
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#FFD700"
+        android:strokeWidth="1.5"
+        android:pathData="M158,600 Q170,595 182,600"/>
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#FFD700"
+        android:strokeWidth="1.5"
+        android:pathData="M158,630 Q170,625 182,630"/>
+
+    <!-- 鱼杆（左） -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#FFD700"
+        android:strokeWidth="2"
+        android:pathData="M60,630 L60,930"/>
+    <path android:fillColor="#00000000" android:strokeColor="#FFD700" android:strokeWidth="1.5" android:pathData="M55,720 L65,720"/>
+
+    <!-- 鱼杆（右） -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#FFD700"
+        android:strokeWidth="2"
+        android:pathData="M160,630 L160,930"/>
+    <path android:fillColor="#00000000" android:strokeColor="#FFD700" android:strokeWidth="1.5" android:pathData="M155,720 L165,720"/>
+
+    <!-- 兽形纹（左） -->
+
+    <!-- 箭羽（左） -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#FFD700"
+        android:strokeWidth="2"
+        android:pathData="M60,850 L40,920 L60,940 L80,920 Z"/>
+    <path android:fillColor="#00000000" android:strokeColor="#FFD700" android:strokeWidth="1.5" android:pathData="M60,860 L50,870"/>
+    <path android:fillColor="#00000000" android:strokeColor="#FFD700" android:strokeWidth="1.5" android:pathData="M60,880 L50,890"/>
+    <path android:fillColor="#00000000" android:strokeColor="#FFD700" android:strokeWidth="1.5" android:pathData="M60,900 L50,910"/>
+    <path android:fillColor="#00000000" android:strokeColor="#FFD700" android:strokeWidth="1.5" android:pathData="M60,860 L70,870"/>
+    <path android:fillColor="#00000000" android:strokeColor="#FFD700" android:strokeWidth="1.5" android:pathData="M60,880 L70,890"/>
+    <path android:fillColor="#00000000" android:strokeColor="#FFD700" android:strokeWidth="1.5" android:pathData="M60,900 L70,910"/>
+
+    <!-- 箭羽（右） -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#FFD700"
+        android:strokeWidth="2"
+        android:pathData="M160,850 L140,920 L160,940 L180,920 Z"/>
+    <path android:fillColor="#00000000" android:strokeColor="#FFD700" android:strokeWidth="1.5" android:pathData="M160,860 L150,870"/>
+    <path android:fillColor="#00000000" android:strokeColor="#FFD700" android:strokeWidth="1.5" android:pathData="M160,880 L150,890"/>
+    <path android:fillColor="#00000000" android:strokeColor="#FFD700" android:strokeWidth="1.5" android:pathData="M160,900 L150,910"/>
+    <path android:fillColor="#00000000" android:strokeColor="#FFD700" android:strokeWidth="1.5" android:pathData="M160,860 L170,870"/>
+    <path android:fillColor="#00000000" android:strokeColor="#FFD700" android:strokeWidth="1.5" android:pathData="M160,880 L170,890"/>
+    <path android:fillColor="#00000000" android:strokeColor="#FFD700" android:strokeWidth="1.5" android:pathData="M160,900 L170,910"/>
+
+    <!-- 底部人面纹 -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#FFD700"
+        android:strokeWidth="2"
+        android:pathData="M20,960 L220,960 L220,1160 L20,1160 Z"/>
+    <!-- 山形纹 -->
+    <path android:fillColor="#00000000" android:strokeColor="#FFD700" android:strokeWidth="2" android:pathData="M20,960 L40,980 L60,960 L80,980 L100,960 L120,980 L140,960 L160,980 L180,960 L200,980 L220,960"/>
+
+    <!-- 放大封闭人脸 → 共3个：左、中、右（整体向下移动80dp） -->
+    <!-- 左侧人脸（放大封闭） -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#FFD700"
+        android:strokeWidth="2"
+        android:pathData="M40,1070 C40,1050 80,1050 80,1070 C80,1090 40,1090 40,1070 Z
+                         M50,1080 L70,1080
+                         M50,1100 L70,1100
+                         M40,1090 L40,1110
+                         M80,1090 L80,1110
+                         M40,1110 C40,1130 80,1130 80,1110 Z"/>
+
+    <!-- 中间人脸（放大封闭，最大） -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#FFD700"
+        android:strokeWidth="2"
+        android:pathData="M90,1060 C90,1030 150,1030 150,1060 C150,1100 90,1100 90,1060 Z
+                         M105,1080 L135,1080
+                         M105,1110 L135,1110
+                         M90,1095 L90,1125
+                         M150,1095 L150,1125
+                         M90,1125 C90,1150 150,1150 150,1125 Z"/>
+
+    <!-- 右侧人脸（放大封闭） -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#FFD700"
+        android:strokeWidth="2"
+        android:pathData="M160,1070 C160,1050 200,1050 200,1070 C200,1090 160,1090 160,1070 Z
+                         M170,1080 L190,1080
+                         M170,1100 L190,1100
+                         M160,1090 L160,1110
+                         M200,1090 L200,1110
+                         M160,1110 C160,1130 200,1130 200,1110 Z"/>
+
+</vector>
