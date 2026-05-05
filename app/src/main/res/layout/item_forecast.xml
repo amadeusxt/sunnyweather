@@ -53,6 +53,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
+            android:textColor="@android:color/black"
             android:text="晴 / 多云"
             android:textSize="14sp" />
 
@@ -62,6 +63,7 @@
             android:id="@+id/tv_temp_max_min"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
             android:layout_marginTop="4dp"
             android:text="25℃ / 18℃"
             android:textSize="14sp" />

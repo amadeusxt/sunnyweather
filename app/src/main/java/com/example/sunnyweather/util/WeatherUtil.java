@@ -18,7 +18,7 @@ public class WeatherUtil {
     private static final OkHttpClient client = new OkHttpClient();
     private static final Gson gson = new Gson();
 
-    private static final String DISTRICT_URL = "https://uapis.cn/api/v1/misc/district";
+    private static final String ADCODE_URL = "https://uapis.cn/api/v1/misc/district";
 
     private static final String WEATHER_URL = "https://uapis.cn/api/v1/misc/weather";
 
@@ -26,8 +26,11 @@ public class WeatherUtil {
         void onSuccess(WeatherBean weatherBean);
         void onFailure(String errorMsg);
     }
-
-
+    private interface AdcodeCallback {
+        void onSuccess(String adcode);
+        void onFailure(String errorMsg);
+    }
+//获取城市名
     public static void getWeather(String city, WeatherCallback callback) {
         if (city == null || city.trim().isEmpty()) {
             callback.onFailure("城市名不能为空");
@@ -48,14 +51,14 @@ public class WeatherUtil {
         });
     }
 
-
+//获取城市Adcode
     private static void getAdcodeByCity(String city, AdcodeCallback callback) {
-        HttpUrl url = HttpUrl.parse(DISTRICT_URL)
+        HttpUrl url = HttpUrl.parse(ADCODE_URL)
                 .newBuilder()
                 .addQueryParameter("keywords", city)
                 .addQueryParameter("limit", "1")
                 .build();
-
+//用城市名请求天气api接口获取城市adcode
         Request request = new Request.Builder().url(url).get().build();
         client.newCall(request).enqueue(new Callback() {
             @Override
@@ -94,7 +97,7 @@ public class WeatherUtil {
         });
     }
 
-
+//根据Adcode获取天气
     private static void getWeatherByAdcode(String adcode, WeatherCallback callback) {
         HttpUrl url = HttpUrl.parse(WEATHER_URL)
                 .newBuilder()
@@ -102,7 +105,7 @@ public class WeatherUtil {
                 .addQueryParameter("forecast", "true")
                 .addQueryParameter("lang", "zh")
                 .build();
-
+    //用城市adcode请求天气api接口获取天气数据
         Request request = new Request.Builder().url(url).get().build();
         client.newCall(request).enqueue(new Callback() {
             @Override
@@ -138,8 +141,5 @@ public class WeatherUtil {
     }
 
 
-    private interface AdcodeCallback {
-        void onSuccess(String adcode);
-        void onFailure(String errorMsg);
-    }
+
 }

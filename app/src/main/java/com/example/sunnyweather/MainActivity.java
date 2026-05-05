@@ -1,5 +1,6 @@
 package com.example.sunnyweather;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.sunnyweather.util.BingImageUtil;
 import com.example.sunnyweather.util.SPUtil;
@@ -36,14 +38,13 @@ public class MainActivity extends AppCompatActivity {
     private ImageView ivBingBg;
     private RecyclerView rvForecast;
     private ForecastAdapter forecastAdapter;
+    private MediaPlayer mediaPlayer;
+    private SwipeRefreshLayout swipeRefreshLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
-
         tvProvince = findViewById(R.id.tv_province);
         tvCity = findViewById(R.id.tv_city);
         tvWeather = findViewById(R.id.tv_weather);
@@ -60,31 +61,27 @@ public class MainActivity extends AppCompatActivity {
         forecastAdapter = new ForecastAdapter(this, null);
         rvForecast.setAdapter(forecastAdapter);
         ivBingBg = findViewById(R.id.iv_bing_bg);
-
-
+        swipeRefreshLayout = findViewById(R.id.swipe_refresh_layout);
+        swipeRefreshLayout.setColorSchemeResources(android.R.color.holo_blue_light);
+        swipeRefreshLayout.setOnRefreshListener(() -> refreshAllData());
+        initMediaPlayer();
         BingImageUtil.loadBingDailyImage(MainActivity.this, ivBingBg);
         WeatherBean cacheWeather = SPUtil.getWeatherData(this);
         if (cacheWeather != null) {
             fillWeatherData(cacheWeather);
             fillForecastData(cacheWeather.getForecast());
-            Toast.makeText(this, "已加载离线天气数据", Toast.LENGTH_SHORT).show();
         }
     }
-
-
+    //获取天气
     public void getWeather(View view) {
         String city = etCity.getText().toString().trim();
         if (city.isEmpty()) {
             Toast.makeText(this, "请输入城市名！", Toast.LENGTH_SHORT).show();
             return;
         }
-
-
-
         WeatherUtil.getWeather(city, new WeatherUtil.WeatherCallback() {
             @Override
             public void onSuccess(WeatherBean weatherBean) {
-
                 runOnUiThread(() -> {
                     fillWeatherData(weatherBean);
                     fillForecastData(weatherBean.getForecast());
@@ -92,18 +89,14 @@ public class MainActivity extends AppCompatActivity {
                     Log.d("MainActivity", weatherBean.toString());
                 });
             }
-
             @Override
             public void onFailure(String errorMsg) {
-
                 runOnUiThread(() -> {
-
                     WeatherBean cacheWeather = SPUtil.getWeatherData(MainActivity.this);
                     if (cacheWeather != null) {
                         fillWeatherData(cacheWeather);
                         fillForecastData(cacheWeather.getForecast());
                     } else {
-
                         clearWeatherViews();
                         forecastAdapter.updateData(null);
                         Toast.makeText(MainActivity.this, errorMsg, Toast.LENGTH_SHORT).show();
@@ -112,8 +105,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
-
+//天气数据填充
     private void fillWeatherData(WeatherBean weatherBean) {
         String province = weatherBean.getProvince() == null ? "未知" : weatherBean.getProvince();
         String city = weatherBean.getCity() == null ? "未知" : weatherBean.getCity();
@@ -148,7 +140,6 @@ public class MainActivity extends AppCompatActivity {
       }
       forecastAdapter.updateData(forecastList);
     }
-
     private void clearWeatherViews() {
         tvProvince.setText("省份：");
         tvCity.setText("城市：");
@@ -161,5 +152,55 @@ public class MainActivity extends AppCompatActivity {
         tvTempMaxMin.setText("当日最高/最低温：");
         tvReportTime.setText("更新时间：");
         SPUtil.clearImageCache(this);
+    }
+//音乐播放
+    private void initMediaPlayer() {
+        mediaPlayer = MediaPlayer.create(this, R.raw.music);
+        mediaPlayer.setLooping(true);
+        mediaPlayer.start();
+    }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (mediaPlayer != null) {
+            mediaPlayer.stop();
+            mediaPlayer.release();
+            mediaPlayer = null;
+        }
+    }
+    //下拉刷新
+    private void refreshAllData() {
+        BingImageUtil.loadBingDailyImage(MainActivity.this, ivBingBg);
+        String city = etCity.getText().toString().trim();
+        WeatherBean cacheWeather = SPUtil.getWeatherData(this);
+        if (city.isEmpty() && cacheWeather != null) {
+            city = cacheWeather.getCity();
+        }
+        if (city.isEmpty()) {
+            swipeRefreshLayout.setRefreshing(false);
+            return;
+        }
+        WeatherUtil.getWeather(city, new WeatherUtil.WeatherCallback() {
+            @Override
+            public void onSuccess(WeatherBean weatherBean) {
+                runOnUiThread(() -> {
+                    fillWeatherData(weatherBean);
+                    fillForecastData(weatherBean.getForecast());
+                    SPUtil.saveWeatherData(MainActivity.this, weatherBean);
+                    swipeRefreshLayout.setRefreshing(false);
+                });
+            }
+            @Override
+            public void onFailure(String errorMsg) {
+                runOnUiThread(() -> {
+                    WeatherBean cacheWeather1 = SPUtil.getWeatherData(MainActivity.this);
+                    if (cacheWeather1 != null) {
+                        fillWeatherData(cacheWeather1);
+                        fillForecastData(cacheWeather1.getForecast());
+                    }
+                    swipeRefreshLayout.setRefreshing(false);
+                });
+            }
+        });
     }
 }

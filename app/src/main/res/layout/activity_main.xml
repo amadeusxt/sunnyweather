@@ -1,21 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:id="@+id/swipe_refresh_layout"
     android:layout_height="match_parent"
     android:background="#F5F7FA"
     tools:context=".MainActivity">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
       >
+
         <ImageView
             android:id="@+id/iv_bing_bg"
             android:layout_width="match_parent"
             android:layout_height="1420dp"
-            android:scaleType="centerCrop"
-            android:alpha="0.7" />
+            android:alpha="0.7"
+            android:scaleType="centerCrop" />
+
         <LinearLayout
             android:layout_marginTop="20dp"
             android:layout_width="match_parent"
@@ -35,7 +42,7 @@
                 app:cardUseCompatPadding="true">
 
                 <LinearLayout
-                    android:layout_width="330dp"
+                    android:layout_width="360dp"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:background="@android:color/transparent"
@@ -43,7 +50,7 @@
 
                     <EditText
                         android:id="@+id/et_city"
-                        android:layout_width="250dp"
+                        android:layout_width="270dp"
                         android:layout_height="wrap_content"
                         android:hint="请输入城市名称(写全称)"
 
@@ -65,13 +72,7 @@
 
 
             <!-- 实时天气卡片 透明 -->
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="0dp"
-                app:cardBackgroundColor="@android:color/transparent"
-                app:cardUseCompatPadding="true">
+
 
 
                 <RelativeLayout
@@ -233,18 +234,7 @@
 
                     </LinearLayout>
                 </RelativeLayout>
-            </androidx.cardview.widget.CardView>
 
-
-            <!-- 7天预报卡片 透明 -->
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="0dp"
-                app:cardBackgroundColor="@android:color/transparent"
-                app:cardUseCompatPadding="true">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -269,7 +259,8 @@
                         android:clipToPadding="false"
                         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
                 </LinearLayout>
-            </androidx.cardview.widget.CardView>
+
         </LinearLayout>
     </RelativeLayout>
 </ScrollView>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

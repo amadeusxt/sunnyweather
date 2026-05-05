@@ -9,9 +9,9 @@ public class SPUtil {
 
     private static final String SP_NAME = "weather_sp";
 
-    private static final String KEY_WEATHER_DATA = "key_weather_data";
+    private static final String KEY_WEATHER = "key_weather_data";
 
-    private static final String KEY_BING_IMAGE_URL = "key_bing_image_url";
+    private static final String KEY_BING_IMAGE = "key_bing_image_url";
 
     private static final String KEY_FORECAST_RANDOM_IMGS = "key_forecast_random_imgs";
 
@@ -24,11 +24,11 @@ public class SPUtil {
         if (weatherBean == null) return;
         Gson gson = new Gson();
         String weatherJson = gson.toJson(weatherBean);
-        getSP(context).edit().putString(KEY_WEATHER_DATA, weatherJson).apply();
+        getSP(context).edit().putString(KEY_WEATHER, weatherJson).apply();
     }
 
     public static WeatherBean getWeatherData(Context context) {
-        String weatherJson = getSP(context).getString(KEY_WEATHER_DATA, null);
+        String weatherJson = getSP(context).getString(KEY_WEATHER, null);
         if (weatherJson == null || weatherJson.isEmpty()) {
             return null;
         }
@@ -38,18 +38,18 @@ public class SPUtil {
 
 
     public static void clearWeatherData(Context context) {
-        getSP(context).edit().remove(KEY_WEATHER_DATA).apply();
+        getSP(context).edit().remove(KEY_WEATHER).apply();
     }
 
 
     public static void saveBingImageUrl(Context context, String imageUrl) {
         if (imageUrl == null || imageUrl.isEmpty()) return;
-        getSP(context).edit().putString(KEY_BING_IMAGE_URL, imageUrl).apply();
+        getSP(context).edit().putString(KEY_BING_IMAGE, imageUrl).apply();
     }
 
 
     public static String getBingImageUrl(Context context) {
-        return getSP(context).getString(KEY_BING_IMAGE_URL, null);
+        return getSP(context).getString(KEY_BING_IMAGE, null);
     }
 
 
@@ -66,7 +66,7 @@ public class SPUtil {
 
     public static void clearImageCache(Context context) {
         getSP(context).edit()
-                .remove(KEY_BING_IMAGE_URL)
+                .remove(KEY_BING_IMAGE)
                 .remove(KEY_FORECAST_RANDOM_IMGS)
                 .apply();
     }
